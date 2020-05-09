@@ -39,12 +39,18 @@ class MikochikuAlarm(QWidget):
         self.search_ch_id = settings.CHID
         self.old_video_id_list = []
         self.request = HttpRequest()
-        # メンバー一覧のjsonを取得し、memberに格納
-        with open(".\\channel\\hololive.json", encoding="UTF-8") as file:
-            self.member = json.load(file)
+
         # Checks which os is being used then sets the correct path
-        if   os.name == "posix": self.lang_path = "lang/"
-        elif os.name == "nt"   : self.lang_path = ".\\lang\\"
+        if   os.name == "posix": self.path = "/" #Linux
+        elif os.name == "nt"   : self.path = "\\" #Windows
+        else: self.path = "/" #Anything else
+
+        self.channel_path  = "channel" + self.path
+        self.lang_path = "lang" + self.path
+
+        # メンバー一覧のjsonを取得し、memberに格納
+        with open(resource_path(self.channel_path + "hololive.json"), encoding="UTF-8") as file:
+            self.member = json.load(file)
 
         self.initUI()
         # 起動直後にチャンネルIDを調べる
