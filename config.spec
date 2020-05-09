@@ -5,7 +5,7 @@ block_cipher = None
 
 a = Analysis(['mikochiku_alarm.py'],
              pathex=['.\\'],
-             binaries=[],
+             binaries=[("..\\lib\\site-packages\\pygame\\libmpg123.dll",".")],
              datas=[
                 ('icon.ico','.'), 
                 ('alarm.mp3','.'),
