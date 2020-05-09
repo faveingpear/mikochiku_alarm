@@ -1,11 +1,11 @@
 import os
 from os.path import join, dirname
-from dotenv import load_dotenv
+import dotenv #Was getting import errors from pyinstaller not including dotenv because it was in the format 'from dotenv import load_dotenv' 
 
-load_dotenv(verbose=True)
+dotenv.load_dotenv(verbose=True)
 
 dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+dotenv.load_dotenv(dotenv_path)
 
 CHID = os.environ.get("CHANNEL_ID")
 ICON = os.environ.get("ICON_PATH")
