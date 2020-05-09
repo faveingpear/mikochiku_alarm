@@ -9,8 +9,8 @@ a = Analysis(['mikochiku_alarm.py'],
              datas=[
                 ('icon.ico','.'), 
                 ('alarm.mp3','.'),
-                ('lang/*','lang'),
-                ('channel/*','channel')
+                ('lang','lang'),
+                ('channel','channel')
              ],
              hiddenimports=[],
              hookspath=[],
@@ -36,5 +36,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False,icon="icon.ico" )
-
+          console=True )

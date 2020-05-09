@@ -179,13 +179,13 @@ class MikochikuAlarm(QWidget):
 
     def load_locale_json(self): # from json file
         path = self.lang_path +"locale.json"
-        with open(path, mode='r') as file:
+        with open(resource_path(path), mode='r') as file:
             dict_json = json.load(file)
             return dict_json["locale"]
 
     def localized_text(self, content):
         path = self.lang_path + self.load_locale_json() + ".json"
-        with open(path, encoding="UTF-8") as file:
+        with open(resource_path(path), encoding="UTF-8") as file:
             dict_json = json.load(file)
         return dict_json[content]
 
